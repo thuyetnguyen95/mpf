@@ -101,7 +101,7 @@
                             </tr>
                             <tr class="gradeU">
                                 <td>Other browsers</td>
-                                <td>All others</td>
+                                <td>ahihihihi</td>
                                 <td>-</td>
                                 <td class="center">-</td>
                                 <td class="center">U</td>
