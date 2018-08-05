@@ -3,6 +3,8 @@
 class Redirect
 {
     public static function to($url = null) {
-        echo '<script>location.href="'.$url.'";</script>';
+        ob_start();
+        // var_dump($url);die();
+        header( "location: $url" );
     }
 }
