@@ -4,7 +4,7 @@ $newItem = true;
 $newItemIntend = false;
 $justBought = getJustBought();
 
-if (!empty($_POST) && $action == 'addItem') {
+if ($action == 'addItem') {
     $itemType = $_POST['itemtype'];
     $itemName = $_POST['itemname'];
     $buyDate = $_POST['buydate'];
@@ -25,7 +25,7 @@ if (!empty($_POST) && $action == 'addItem') {
     $justBought = getJustBought();
 }
 
-if (!empty($_POST) && $action == 'addItemIntend') {
+if ($action == 'addItemIntend') {
     $itemType = $_POST['itemtype_intend'];
     $itemName = $_POST['itemname_intend'];
     $buyDate = $_POST['buydate_intend'];

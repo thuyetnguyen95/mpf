@@ -19,12 +19,11 @@ if ($adminUsername == '' || $adminPassword == '') {
     $sql = "select username from mpf_admin where username = '$adminUsername'";
     if ($db->getTotalRecord($sql)) {
         $adminPasswordMd5 = md5($adminPassword);
-        $sql = "select username,password,id from mpf_admin where username = '$adminUsername' and password = '$adminPasswordMd5'";
-        $userData = $db->getTotalRecord($sql);
-        if ($userData) {
+        $sql = "select username,password from mpf_admin where username = '$adminUsername' and password = '$adminPasswordMd5'";
+        if ($db->getTotalRecord($sql)) {
             $sqlCheckStatus = "SELECT username, password, status FROM mpf_admin WHERE username = '$adminUsername' AND password = '$adminPasswordMd5' AND status = '0'";
             if ($db->getTotalRecord($sqlCheckStatus)) {
-                $session->saveSession($adminUsername, $adminPassword, $userData['id']);
+                $session->saveSession($adminUsername, $adminPassword);
                 $db->disconnect();
                 rememberMe($remember);
                 echo $showAlert.$success.'Login success!';
