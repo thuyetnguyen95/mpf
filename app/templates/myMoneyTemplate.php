@@ -1,3 +1,5 @@
+<?php include "controller/myMoneyController.php";?>
+
 <div class="row">
     <div class="">
         <br>
@@ -6,8 +8,8 @@
     <div class="col-md-12">
         <div class="money--info">
             <div class="col-md-4">
-                <p class="left-border-primary">Số dư khả dụng: 1.500.000 VNĐ</p>
-                <p class="left-border-primary">Số dư đầu tháng: 2.500.000 VNĐ</p>
+                <p class="left-border-primary">Số dư khả dụng: <?= $money['money_rest'];?> VNĐ</p>
+                <p class="left-border-primary">Số dư đầu tháng: <?= $money['money_first'];?> VNĐ</p>
             </div>
             <div class="col-md-4">
                 <p class="left-border-primary">Số tiền đã sử dụng: 1.000.000 VNĐ</p>
@@ -15,6 +17,7 @@
             </div>
             <div class="col-md-4">
                 <p class="left-border-primary">Số tiền tối đa một ngày: 100.000/ngày</p>
+                <p class="left-border-primary">Tổng tiền trong tháng: <?= number_format(($money['money_first'] + $money['money_add'] - $money['money_rest']))?> VNĐ</p>
             </div>
         </div>
     </div>
@@ -27,85 +30,61 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <form method="post" action="?view=yourMoney&act=addMoney">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel"> Nhập thông tin tiền của bạn</h4>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>Số tiền khả dụng trong tháng <small class="text-danger">(chỉ nhập số)</small></label>
-                                <input type="number" class="form-control" name="money_first" placeholder="vd: 1,500,000" required>
-                                <small class="text-muted">Tiền khả dụng: là số tiền bạn dự định được phép sử dụng trong tháng này</small>
-                            </div>
-                            <div class="form-group">
-                                <label>Số tiền hạn mức cho 1 ngày (ước lượng) <small class="text-danger">(chỉ nhập số)</small></label>
-                                <input type="number" class="form-control" name="money_max" placeholder="vd: 50,000" required>
-                                <small class="text-muted">Số tiền hạn mức: là số tiền bạn mong muốn 1 ngày sử dụng không quá hạn mức đó</small>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-                            <button type="submit" class="btn btn-primary">Lưu số tiền</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            </div>
+            <?php include_once "addMoneyTemplate.php" ?>
         </div>
     </div>
 
+    <!-- Message for add money success -->
+    <div class="row row mt-25">
+        <div class="col-md-6">
+            <?php
+                if (isset($message) && $message != '') {
+                    echo "<div class='alert alert-success alert-dismissable'>
+                        <button type='button' class='close' data-dismiss='alert'>×</button>
+                        ".$message."
+                    </div>";
+                }
+            ?>
+        </div>
+    </div>
+    
     <!-- List money for month -->
-    <div class="row mt-25">
+    <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">
-                    DataTables Advanced Tables
+                    Số tiền đã sử dụng qua các tháng
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th>Rendering engine</th>
-                                <th>Browser</th>
-                                <th>Platform(s)</th>
-                                <th>Engine version</th>
-                                <th>CSS grade</th>
+                                <th class="text-center">STT</th>
+                                <th class="text-center">Tháng</th>
+                                <th class="text-center">Tổng tiền sử dụng</th>
+                                <th class="text-center">Tổng tiền trong tháng</th>
+                                <th class="text-center">Số lần thêm</th>
+                                <th class="text-center">Max</th>
+                                <th class="text-center">Số lần vượt max</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                            $stt = 0;
+                            foreach ($allMoney as $moneyDetail) {
+                            $stt++
+                        ?>
                             <tr class="gradeX">
-                                <td>Misc</td>
-                                <td>Lynx</td>
-                                <td>Text only</td>
-                                <td class="center">-</td>
-                                <td class="center">X</td>
+                                <td class="text-center" style="width:10px;"><?= $stt;?></td>
+                                <td class="text-center"><?= $moneyDetail['month'];?></td>
+                                <td class="text-center"><?php echo number_format(($moneyDetail['money_first'] + $moneyDetail['money_add'] - $moneyDetail['money_rest']));?> VNĐ</td>
+                                <td class="text-center"><?= number_format($moneyDetail['money_first'] + $moneyDetail['money_add']);?> VNĐ</td>
+                                <td class="text-center"><?= $moneyDetail['count_money_add'];?> lần</td>
+                                <td class="text-center"><?= number_format($moneyDetail['money_max']);?>/ngày</td>
+                                <td class="text-center"><?= $moneyDetail['over_max'];?> lần</td>
                             </tr>
-                            <tr class="gradeC">
-                                <td>Misc</td>
-                                <td>IE Mobile</td>
-                                <td>Windows Mobile 6</td>
-                                <td class="center">-</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="gradeC">
-                                <td>Misc</td>
-                                <td>PSP browser</td>
-                                <td>PSP</td>
-                                <td class="center">-</td>
-                                <td class="center">C</td>
-                            </tr>
-                            <tr class="gradeU">
-                                <td>Other browsers</td>
-                                <td>ahihihihi</td>
-                                <td>-</td>
-                                <td class="center">-</td>
-                                <td class="center">U</td>
-                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
