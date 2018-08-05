@@ -1,3 +1,5 @@
+<?php include "controller/myMoneyController.php";?>
+
 <div class="row">
     <div class="">
         <br>
