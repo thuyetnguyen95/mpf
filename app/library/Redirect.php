@@ -1,10 +1,8 @@
 <?php
-
+ob_start();
 class Redirect
 {
-    public static function to($url = null) {
-        ob_start();
-        // var_dump($url);die();
-        header( "location: $url" );
+    public static function to($route = null) {
+        header("location: $__fullDomain.$route");
     }
 }

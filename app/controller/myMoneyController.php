@@ -18,9 +18,10 @@ if (isset($_POST['submit']) && $action='addMoney') {
     } else {
         $countMoneyAdd = $money['count_money_add'] + 1;
         $moneyAdd = $_POST['money_add'] + $money['money_add'];
+        $moneyRest = $_POST['money_add'] + $money['money_rest'];
         $id = $money['id'];
 
-        $sql = "UPDATE mpf_money SET money_add = $moneyAdd, count_money_add = $countMoneyAdd WHERE id = $id";
+        $sql = "UPDATE mpf_money SET money_add = $moneyAdd, money_rest = $moneyRest,count_money_add = $countMoneyAdd WHERE id = $id";
     }
 
     $db = new DB();
@@ -30,6 +31,7 @@ if (isset($_POST['submit']) && $action='addMoney') {
         $message = "Tiền đã được thêm!";
     }
     $db->disconnect();
+    Redirect::to("?view=myMoney");
 }
 
 // Get money in a month
@@ -71,5 +73,4 @@ function getAllMoney($from, $record_perpage) {
 
     return $money;
 }
-
 ?>

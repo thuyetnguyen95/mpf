@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 05, 2018 at 05:15 PM
+-- Generation Time: Aug 07, 2018 at 09:23 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -33,13 +33,6 @@ CREATE TABLE `mpf_admin` (
   `email` varchar(50) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `mpf_admin`
---
-
-INSERT INTO `mpf_admin` (`id`, `username`, `password`, `email`, `status`) VALUES
-(1, 'wami', '202cb962ac59075b964b07152d234b70', 'thuyettiensinh@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -95,13 +88,6 @@ CREATE TABLE `mpf_money` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mpf_money`
---
-
-INSERT INTO `mpf_money` (`id`, `money_first`, `money_rest`, `money_add`, `money_max`, `over_max`, `month`, `admin_id`, `count_money_add`) VALUES
-(4, 100, 50, 10, 5, 0, 8, 1, 10);
-
---
 -- Indexes for dumped tables
 --
 
@@ -137,22 +123,22 @@ ALTER TABLE `mpf_money`
 -- AUTO_INCREMENT for table `mpf_admin`
 --
 ALTER TABLE `mpf_admin`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_bought`
 --
 ALTER TABLE `mpf_bought`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_intend_buy`
 --
 ALTER TABLE `mpf_intend_buy`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_money`
 --
 ALTER TABLE `mpf_money`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

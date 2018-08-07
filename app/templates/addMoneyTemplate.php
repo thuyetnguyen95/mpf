@@ -11,12 +11,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Số tiền khả dụng trong tháng <small class="text-danger">(chỉ nhập số)</small></label>
-                        <input type="number" class="form-control" name="money_first" placeholder="vd: 1,500,000" required>
+                        <label>Số tiền khả dụng trong tháng: <small class="text-danger">(chỉ nhập số)</small></label>
+                        <input type="number" class="form-control" name="money_first" placeholder="vd: 2,500,000" required>
                         <small class="text-muted">Tiền khả dụng: là số tiền bạn dự định được phép sử dụng trong tháng này</small>
                     </div>
                     <div class="form-group">
-                        <label>Số tiền hạn mức cho 1 ngày (ước lượng) <small class="text-danger">(chỉ nhập số)</small></label>
+                        <label>Số tiền hạn mức cho 1 ngày (ước lượng): <small class="text-danger">(chỉ nhập số)</small></label>
                         <input type="number" class="form-control" name="money_max" placeholder="vd: 50,000" required>
                         <small class="text-muted">Số tiền hạn mức: là số tiền bạn mong muốn 1 ngày sử dụng không quá hạn mức đó</small>
                     </div>
@@ -42,8 +42,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Số tiền bạn muốn<small class="text-danger">&nbsp;(chỉ nhập số)</small></label>
-                        <input type="number" class="form-control" name="money_add" placeholder="vd: 1,500,000" required>
+                        <label>Số tiền bạn muốn thêm: <small class="text-danger">&nbsp;(chỉ nhập số)</small></label>
+                        <input type="number" class="form-control" name="money_add" placeholder="vd: 500,000" required>
                         <small class="text-muted">Tiền muốn thêm: là số tiền bạn cần phải sử dụng thêm trong tháng này</small>
                     </div>
                 </div>

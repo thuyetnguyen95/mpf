@@ -8,16 +8,16 @@
     <div class="col-md-12">
         <div class="money--info">
             <div class="col-md-4">
-                <p class="left-border-primary">Số dư khả dụng: <?= $money['money_rest'];?> VNĐ</p>
-                <p class="left-border-primary">Số dư đầu tháng: <?= $money['money_first'];?> VNĐ</p>
+                <p class="left-border-primary">Số dư khả dụng: <?= number_format($money['money_rest']);?> VNĐ</p>
+                <p class="left-border-primary">Số tiền đã sử dụng: <?= number_format(($money['money_first'] + $money['money_add']) - $money['money_rest']);?> VNĐ</p>
             </div>
             <div class="col-md-4">
-                <p class="left-border-primary">Số tiền đã sử dụng: 1.000.000 VNĐ</p>
-                <p class="left-border-primary">Số ngày còn lại trong tháng: 15 ngày</p>
+                <p class="left-border-primary">Số ngày còn lại trong tháng: <?= date('t') - date('j');?> ngày</p>
+                <p class="left-border-primary">Số tiền tối đa bạn NÊN dùng trong một ngày: <?=  number_format(floor($money['money_rest']/(date('t') - date('j'))));?>đ/ngày</p>
             </div>
             <div class="col-md-4">
-                <p class="left-border-primary">Số tiền tối đa một ngày: 100.000/ngày</p>
-                <p class="left-border-primary">Tổng tiền trong tháng: <?= number_format(($money['money_first'] + $money['money_add'] - $money['money_rest']))?> VNĐ</p>
+            <p class="left-border-primary">Số dư đầu tháng: <?= number_format($money['money_first']);?> VNĐ</p>
+                <p class="left-border-primary">Tổng tiền trong tháng: <?= number_format($money['money_first'] + $money['money_add']);?> VNĐ</p>
             </div>
         </div>
     </div>
@@ -57,6 +57,10 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                <p>
+                    <span style="color:red">(∗)</span>
+                    <span class="text-muted">Tổng tiền đã thêm là số tiền bạn đã thêm sau khi nhập khoản tiền dự định cho tháng đó</span>
+                </p>
                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
@@ -64,6 +68,7 @@
                                 <th class="text-center">Tháng</th>
                                 <th class="text-center">Tổng tiền sử dụng</th>
                                 <th class="text-center">Tổng tiền trong tháng</th>
+                                <th class="text-center">Tổng tiền đã thêm</th>
                                 <th class="text-center">Số lần thêm</th>
                                 <th class="text-center">Max</th>
                                 <th class="text-center">Số lần vượt max</th>
@@ -78,16 +83,44 @@
                             <tr class="gradeX">
                                 <td class="text-center" style="width:10px;"><?= $stt;?></td>
                                 <td class="text-center"><?= $moneyDetail['month'];?></td>
-                                <td class="text-center"><?php echo number_format(($moneyDetail['money_first'] + $moneyDetail['money_add'] - $moneyDetail['money_rest']));?> VNĐ</td>
+                                <td class="text-center"><?php echo number_format(($moneyDetail['money_first'] + $moneyDetail['money_add']) - $moneyDetail['money_rest']);?> VNĐ</td>
                                 <td class="text-center"><?= number_format($moneyDetail['money_first'] + $moneyDetail['money_add']);?> VNĐ</td>
+                                <td class="text-center"><?= number_format($moneyDetail['money_add']);?> VNĐ</td>
                                 <td class="text-center"><?= $moneyDetail['count_money_add'];?> lần</td>
-                                <td class="text-center"><?= number_format($moneyDetail['money_max']);?>/ngày</td>
+                                <td class="text-center"><?= number_format($moneyDetail['money_max']);?> đ/ngày</td>
                                 <td class="text-center"><?= $moneyDetail['over_max'];?> lần</td>
                             </tr>
                         <?php } ?>
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <!-- Paging -->
+            <div style="margin: 50px 0px;">
+                <ul class="pagination" style="margin: 0px; padding: 0px; ">
+                    <li style="pointer-events: none;"><span style=" color: #000">Trang</span></li>
+                    <?php 
+                        for($i=1; $i<=$num_page; $i++) {
+                            if (!isset($_GET['p'])) {
+                                $page = 1;
+                            } else {
+                                $page = $_GET['p'];
+                            }
+                    ?>
+                    <li class="<?php echo ($page == $i) ? "active":"";?>">
+                        <a href="?view=listBought&p=<?php echo $i;?>"><?php echo $i;?></a>
+                    </li>
+                    
+                    <?php }
+                        if ($num_page > 1) {
+                    ?>
+                        <li class="<?php echo ($page == $i) ? "active":"";?>">
+                            <a href="?view=listBought&p=fix_this">
+                                10 trang tiếp <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
     </div>

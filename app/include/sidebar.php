@@ -27,6 +27,7 @@
             <li>
                 <a href="?view=statistical"><i class="fa   fa-check-square-o  fa-fw"></i> Thống kê các mặt hàng</a>
             </li>
+            <!-- 
             <li>
                 <a href="?view=tables"><i class="fa fa-table fa-fw"></i> Tables</a>
             </li>
@@ -55,7 +56,6 @@
                         <a href="?view=grid">Grid</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
             <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -82,12 +82,10 @@
                                 <a href="#">Third Level Item</a>
                             </li>
                         </ul>
-                        <!-- /.nav-third-level -->
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
+            -->
         </ul>
     </div>
-    <!-- /.sidebar-collapse -->
 </div>

@@ -1,9 +1,10 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
-    </div>
+    <!-- <div class="col-lg-12">
+        <h1 class="page-header">Hết tiền rồi .........</h1>
+    </div> -->
+    <img src="./assets/images/main.jpg" alt="" class="img-reponsive" style="width:100%">
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-3 col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -92,9 +93,9 @@
             </a>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -119,20 +120,16 @@
                     </div>
                 </div>
             </div>
-            <!-- /.panel-heading -->
             <div class="panel-body">
                 <div id="morris-area-chart"></div>
             </div>
-            <!-- /.panel-body -->
         </div>
     </div>
-    <!-- /.col-lg-8 -->
     <div class="col-lg-4">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-bell fa-fw"></i> Notifications Panel
             </div>
-            <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="list-group">
                     <a href="#" class="list-group-item">
@@ -181,12 +178,9 @@
                             </span>
                         </a>
                     </div>
-                    <!-- /.list-group -->
                     <a href="#" class="btn btn-default btn-block">View All Alerts</a>
                 </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
         </div>
-        <!-- /.col-lg-4 -->
     </div>
+</div> -->
