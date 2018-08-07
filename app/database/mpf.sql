@@ -3,7 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Aug 07, 2018 at 09:23 PM
+=======
 -- Generation Time: Aug 01, 2018 at 07:06 PM
+>>>>>>> master
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -33,13 +37,6 @@ CREATE TABLE `mpf_admin` (
   `email` varchar(50) NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `mpf_admin`
---
-
-INSERT INTO `mpf_admin` (`id`, `username`, `password`, `email`, `status`) VALUES
-(1, 'wami', '202cb962ac59075b964b07152d234b70', 'thuyettiensinh@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -162,17 +159,17 @@ ALTER TABLE `mpf_money`
 -- AUTO_INCREMENT for table `mpf_admin`
 --
 ALTER TABLE `mpf_admin`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_bought`
 --
 ALTER TABLE `mpf_bought`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_intend_buy`
 --
 ALTER TABLE `mpf_intend_buy`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `mpf_money`
 --

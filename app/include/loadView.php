@@ -18,6 +18,10 @@
         }
         $view .= 'Template';
 
-        return "templates/$view.php";
+        if (file_exists("templates/$view.php")) {
+            return "templates/$view.php";
+        }
+
+        return "templates/error.php";
     }
 ?>

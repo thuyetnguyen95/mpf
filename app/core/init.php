@@ -7,6 +7,7 @@ $db = new DB();
 $db->connect();
 
 $_domain = "http://localhost/All_project/MSP/";
+$__fullDomain = "http://localhost/All_project/MSP/app/";
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $currentDate = date('Y-m-d H:i:sa');
 
