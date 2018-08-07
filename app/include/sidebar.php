@@ -16,7 +16,7 @@
                 <a href="?view=home"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
             </li>
             <li>
-                <a href="?view=myMoney"><i class="fa fa-money  fa-fw"></i> Tiền của bạn</a>
+                <a href="?view=yourMoney"><i class="fa fa-money  fa-fw"></i> Tiền của bạn</a>
             </li>
             <li>
                 <a href="?view=newItems"><i class="fa fa-plus  fa-fw"></i> Mua gì đó</a>
