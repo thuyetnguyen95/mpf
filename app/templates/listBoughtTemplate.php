@@ -16,13 +16,14 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr class="bg-info">
                                 <th>#</th>
                                 <th>Tên SP</th>
                                 <th>Giá</th>
+                                <th>Loại mặt hàng</th>
                                 <th>Ngày mua</th>
                                 <th>Chú thích</th>
-                                <th>Quản lý</th>
+                                <th style="width: 140px;">Quản lý</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,13 +36,15 @@
                                     <span style="font-weight: bold"><?= $item['name'];?></span>
                                 </td>
                                 <td><?= number_format($item['cost']);?> VND</td>
+                                <td><?= $typeOfProducts[$item['type_id']];?></td>
                                 <td><?= $item['buydate'];?></td>
                                 <td><?= $item['comment'];?></td>
                                 <td>
-                                    <a href="#">
-                                        <button class="btn btn-info btn-sm">
-                                            <i class="fa fa-edit"></i> Sửa
-                                        </button>
+                                    <a href="?view=editBought&act=edit&id=<?= $item['id'];?>" class="btn btn-info btn-sm">
+                                        <i class="fa fa-edit"></i> Sửa
+                                    </a>
+                                    <a href="?view=listBought&act=delete&id=<?= $item['id'];?>" class="btn btn-danger btn-sm" onclick="return confirm('Mày chắc chứ ?')">
+                                        <i class="fa fa-trash"></i> Xóa
                                     </a>
                                 </td>
                             </tr>
@@ -73,7 +76,7 @@
                 ?>
                     <li class="<?php echo ($page == $i) ? "active":"";?>">
                         <a href="?view=listBought&p=fix_this">
-                            10 trang tiếp <i class="fa fa-angle-double-right"></i>
+                            10 page <i class="fa fa-angle-double-right"></i>
                         </a>
                     </li>
                 <?php } ?>

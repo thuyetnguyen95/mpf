@@ -106,6 +106,28 @@ class DB
     }
 
     /**
+     * Get only one record
+     *
+     * @param [string] $sql
+     * @param integer $type
+     * @return void
+     */
+    public function fetchOne($sql = null)
+    {
+        if (!$this->conn) {
+            exit('Oops! You are not connect with database!');
+        }
+
+        $data = array();
+        $query = mysqli_query($this->conn, $sql);
+        if (!$query) {
+            exit('Oops! something went wrong' .'<br/>' .'Please check your query: ' .$sql);
+        }
+
+        return mysqli_fetch_assoc($query);
+    }
+
+    /**
      * Get next id to insert
      *
      * @return void

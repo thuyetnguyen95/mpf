@@ -60,6 +60,7 @@ $from = $page * $record_perpage;
 
 
 $allMoney = getAllMoney($from, $record_perpage);
+// $moneyUsed = SELECT SUM(`cost`) FROM `mpf_bought` WHERE #date condition here
 // var_dump($allMoney);die();
 
 

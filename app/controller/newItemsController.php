@@ -66,7 +66,7 @@ if (!empty($_POST) && $action == 'addItemIntend') {
 function getJustBought() {
     $db = new DB();
     $db->connect();
-    $sqlJustBought = "SELECT * FROM `mpf_bought` ORDER By id DESC LIMIT 50";
+    $sqlJustBought = "SELECT * FROM `mpf_bought` ORDER BY buydate DESC, id DESC LIMIT 100";
     $justBought = $db->fetchAll($sqlJustBought);
     $db->disconnect();
 

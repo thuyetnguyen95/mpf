@@ -18,7 +18,7 @@
 <body>
 <?php
     if (!$user) {
-        require_once "/templates/loginTemplate.php";
+        require_once "templates/loginTemplate.php";
     } else {
 ?>
 <div id="wrapper">

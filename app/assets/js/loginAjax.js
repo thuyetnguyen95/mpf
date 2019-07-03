@@ -1,5 +1,3 @@
-$_domain = "http://localhost/All_project/MSP/app/";
-
 $('#formSignin button').on('click', function() {
     $('.txtBtnLogin').html('Loading...');
 
@@ -16,7 +14,7 @@ $('#formSignin button').on('click', function() {
         $('.txtBtnLogin').html('Login');
     } else {
         $.ajax({
-            url : $_domain + 'login.php',
+            url : _domain + 'login.php',
             type : 'POST',
             data : {
                 username : $username,

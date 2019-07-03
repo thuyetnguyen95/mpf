@@ -49,3 +49,5 @@
         </div>
     </div>
 </div>
+
+<script src="<?= $_domain;?>app/assets/js/loginAjax.js"></script>

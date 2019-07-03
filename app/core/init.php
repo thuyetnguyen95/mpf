@@ -1,4 +1,5 @@
 <?php
+require_once "config.php";
 require_once "library/DB.php";
 require_once "library/Session.php";
 require_once "library/Redirect.php";
@@ -6,8 +7,6 @@ require_once "library/Redirect.php";
 $db = new DB();
 $db->connect();
 
-$_domain = "http://localhost/All_project/MSP/";
-$__fullDomain = "http://localhost/All_project/MSP/app/";
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $currentDate = date('Y-m-d H:i:sa');
 

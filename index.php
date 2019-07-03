@@ -1,4 +1,5 @@
 <?php
-    $_domain = "http://localhost/All_project/MSP/";
+	require_once('./app/core/config.php');
+
     header('location:'.$_domain.'app/');
 ?>

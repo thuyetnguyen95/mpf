@@ -195,7 +195,7 @@
 
 <style>
     .purchased {
-        height: 400px;
+        height: 700px;
         overflow-y:scroll;
     }
 </style>
